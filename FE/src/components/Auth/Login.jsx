@@ -84,7 +84,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', formData);
+      const response = await axios.post('https://booking-14ix.onrender.com/api/auth/login', formData);
       const { token, user } = response.data;
       login(user, token);
       navigate('/book-seats');

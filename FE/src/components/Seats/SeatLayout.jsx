@@ -158,7 +158,7 @@ const SeatLayout = () => {
 
   const fetchSeats = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/seats');
+      const response = await axios.get('https://booking-14ix.onrender.com/api/seats');
       setSeats(response.data);
     } catch (err) {
       setError('Failed to fetch seats');
@@ -170,7 +170,7 @@ const SeatLayout = () => {
     try {
       const token = localStorage.getItem('token');
       const user = JSON.parse(localStorage.getItem('user'));
-      const response = await axios.get(`http://localhost:5000/api/seats/user/${user._id}`, {
+      const response = await axios.get(`https://booking-14ix.onrender.com/api/seats/user/${user._id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setMyBookings(response.data);
@@ -221,7 +221,7 @@ const SeatLayout = () => {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.post(
-        'http://localhost:5000/api/seats/book',
+        'https://booking-14ix.onrender.com/api/seats/book',
         { seatNumbers: selectedSeats },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -249,7 +249,7 @@ const SeatLayout = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.post(
-        'http://localhost:5000/api/seats/book',
+        'https://booking-14ix.onrender.com/api/seats/book',
         { seatNumbers: suggestedSeats },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -270,7 +270,7 @@ const SeatLayout = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.delete(
-        `http://localhost:5000/api/seats/cancel/${bookingId}`,
+        `https://booking-14ix.onrender.com/api/seats/cancel/${bookingId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       fetchSeats();

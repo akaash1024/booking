@@ -64,7 +64,7 @@ const Bookings = () => {
         throw new Error('User not authenticated');
       }
 
-      const response = await axios.get(`http://localhost:5000/api/seats/user/${user._id}`, {
+      const response = await axios.get(`https://booking-14ix.onrender.com/api/seats/user/${user._id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setMyBookings(response.data);
@@ -84,7 +84,7 @@ const Bookings = () => {
       }
 
       await axios.delete(
-        `http://localhost:5000/api/seats/cancel/${bookingId}`,
+        `https://booking-14ix.onrender.com/api/seats/cancel/${bookingId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       
